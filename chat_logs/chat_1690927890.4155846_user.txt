@@ -1,0 +1,1 @@
+If I feed a mannually labeled dataset, with 2 variables, "Text", and "ForwardLooking", where "Text" is the statements and "ForwardLooking" is 1 if the statement is forward  looking, and 0 otherwise.. Please provide fine-tuning pseudo code with RoBERTa, GPT-3.5 or Meta-Llama.

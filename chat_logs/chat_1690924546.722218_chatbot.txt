@@ -1,0 +1,35 @@
+Certainly, Cinder. Annotating your dataset involves marking the start and end of the sections of interest in your text. This process can be manual or semi-automated with the help of some basic NLP techniques. 
+
+For instance, let's say you have a text from an N-CSR filing like this:
+
+```
+1.0 LETTER TO SHAREHOLDERS
+
+Dear Shareholders,
+
+We are pleased to present the annual report for XYZ Fund. The fund's net asset value increased by 5% this year...
+
+2.0 MARKET OUTLOOK
+
+Looking ahead, we expect the market to...
+
+3.0 INTERVIEW WITH FUND MANAGER
+
+In a recent interview, our fund manager stated that...
+```
+
+You would annotate this text by marking the start and end indices of each section. The output might look something like this:
+
+```python
+annotations = [
+    ('LETTER TO SHAREHOLDERS', 6, 103),
+    ('MARKET OUTLOOK', 107, 150),
+    ('INTERVIEW WITH FUND MANAGER', 154, 210)
+]
+```
+
+Each tuple in the list represents a section, with the start and end indices referring to the position of the section in the text. 
+
+This is a simplified example and the actual process may be more complex, especially for longer and more unstructured texts. Tools like Doccano can assist with this process, allowing you to annotate your text in a more visual and intuitive way.
+
+Remember, the quality of your annotations will greatly affect the performance of your model, so it's important to be as accurate as possible.

@@ -1,0 +1,1 @@
+I have difficulty of retrive the potentially relevent text from N-CSR/S filings. The issue is that the N-CSR and N-CSRS files do not following particular format. The sections I am intersted in are letters/statement to shareholders; outlook; interview with your fund manager and such.

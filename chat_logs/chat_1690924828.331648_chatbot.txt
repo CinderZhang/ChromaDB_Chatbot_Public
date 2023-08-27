@@ -1,0 +1,11 @@
+Yes, Cinder, focusing on extracting sentences where fund managers express their forward-looking opinions could indeed be a less costly approach. This would involve training a model to identify and extract sentences based on certain keywords or phrases that indicate a forward-looking statement.
+
+However, there are a few things to consider:
+
+1. **Context**: Forward-looking statements are often surrounded by context that helps explain or support them. By only extracting the sentences with the statements, you might miss out on this context.
+
+2. **Ambiguity**: Not all forward-looking statements will be clearly marked as such. They might be embedded in a larger discussion or presented indirectly. This could make it more difficult for your model to accurately identify them.
+
+3. **Variability**: The language used in these statements can vary greatly, both between different fund managers and over time. This could require a larger and more diverse training dataset to ensure your model can generalize well.
+
+Despite these challenges, this approach could still be a good starting point, especially if you're new to NLP or if you have limited resources. You can always start with this simpler task and then gradually add more complexity as you gain more experience and resources.

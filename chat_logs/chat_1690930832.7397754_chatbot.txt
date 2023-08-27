@@ -1,0 +1,20 @@
+Sure, Cinder. After you've fine-tuned your model, you can save it using the `save_model` method provided by the Hugging Face's Transformers library. Here's how you can do it:
+
+For RoBERTa:
+
+```python
+# Save the fine-tuned RoBERTa model
+model.save_pretrained('./fine_tuned_roberta')
+```
+
+For GPT-3.5, as mentioned earlier, fine-tuning is not currently supported directly. However, if you have a fine-tuned model from the OpenAI API, you can save the generated outputs for future use:
+
+```python
+# Save the generated outputs from GPT-3.5
+with open('gpt3_5_outputs.txt', 'w') as f:
+    f.write(response)
+```
+
+In this case, you're not saving the model itself, but the outputs that the model generated. You can then load these outputs in a future session for further analysis or use.
+
+Remember to replace `'./fine_tuned_roberta'` and `'gpt3_5_outputs.txt'` with your desired save paths.

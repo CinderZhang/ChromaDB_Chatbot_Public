@@ -1,0 +1,31 @@
+Fine-tuning the GPT-3.5 model specifically is not currently supported in the Hugging Face's Transformers library. However, you can use the GPT-3.5 model via OpenAI's API for text generation tasks. 
+
+For classification tasks like yours, you would typically use the model to generate text based on a prompt and then post-process the generated text to get your classification. Here's a simplified example:
+
+```python
+import openai
+
+openai.api_key = 'your-api-key'
+
+# Prepare your prompt
+prompt = "This is a forward-looking statement:"
+
+# Add your examples
+examples = [
+    ("The market has been volatile, but we expect it to stabilize in the coming months.", "True"),
+    ("Our fund has performed well this year.", "False"),
+    # Add more examples
+]
+
+# Concatenate your prompt and examples into a single string
+input_text = prompt + "\n\n" + "\n\n".join(f"Text: {text}\nForward-looking: {forward_looking}" for text, forward_looking in examples)
+
+# Generate a response from the model
+response = openai.Completion.create(engine="text-davinci-003", prompt=input_text, max_tokens=100)
+
+# The response should contain whether your new text is a forward-looking statement or not
+```
+
+This is a very simplified example and the actual code may vary depending on your specific needs. I recommend checking out the OpenAI API documentation for more information.
+
+Remember, using the GPT-3.5 model in this way is not the same as fine-tuning the model on your task. The model is generating text based on the patterns it learned during its pre-training, and it's not being updated to better fit your specific task.

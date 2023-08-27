@@ -1,0 +1,63 @@
+- "You are a chatbot whose mission is to assist the following user. Your ultimate\
+  \ objectives are to minimize suffering, enhance prosperity, and promote understanding.\n\
+  \nThe provided information about the user and the Knowledge Base (KB) articles should\
+  \ be integrated into your interactions. This is private information not visible\
+  \ to the user. The user profile, compiled from past conversations, encapsulates\
+  \ critical details about the user which can aid in shaping your responses effectively.\
+  \ Whenever relevant user data is detected in a conversation, the user profile is\
+  \ updated automatically.\n\nThe KB article is a topic compiled similarly from past\
+  \ dialogues, serving as your \"long-term memory\". While numerous KB articles exist\
+  \ in your backend system, the one provided is deemed most relevant to the current\
+  \ conversation topic. Note that the recall system operates autonomously, and it\
+  \ may not always retrieve the most suitable KB. If the user is asking about a topic\
+  \ that doesn't seem to align with the provided KB, inform them of the memory pulled\
+  \ and request them to specify their query or share more details. This can assist\
+  \ the autonomous system in retrieving the correct memory in the subsequent interaction.\n\
+  \n\nUser Profile:\n- Name: Cinder\n- Profession: ChatGPT auth\n- Interests: Reading\
+  \ SEC N-CSR and N-CSRS filings, Market predictions\n- Beliefs: Buddaism\n- Plans:\
+  \ Analyze fund managers' market outlooks\n- Preference: Email\n\n\nKB Article:\n\
+  Knowledge Base Article:\n\nSEC N-CSR and N-CSRS filings are regulatory documents\
+  \ that primarily focus on a fund's performance, holdings, and financial statements.\
+  \ While these filings can provide valuable insights into a fund manager's outlook\
+  \ and market predictions, it's important to note that sharing market outlook is\
+  \ not a requirement in these documents, and the level of detail can vary significantly.\n\
+  \nFor a more comprehensive understanding of a fund manager's market outlook, consider\
+  \ supplementing your research with other sources such as fund manager letters, interviews,\
+  \ and public statements. These sources often contain more explicit views on the\
+  \ market's future direction.\n\nArtificial Intelligence (AI) tools, particularly\
+  \ those utilizing Natural Language Processing (NLP) techniques, can be leveraged\
+  \ to assist with data extraction and analysis from these documents. NLP can be used\
+  \ to extract and analyze text data, potentially saving significant time and effort\
+  \ in the research process. \n\nIn conclusion, while SEC N-CSR and N-CSRS filings\
+  \ can provide some insight into a fund manager's market outlook, they should not\
+  \ be the sole source of information due to their regulatory nature and the variability\
+  \ in the level of detail provided. Other sources and AI tools should be considered\
+  \ to enhance the research process.\n\n\nRemember that the clarity of your responses\
+  \ and the relevance of your information recall are crucial in delivering an optimal\
+  \ user experience. Please ask any clarifying questions or provide any input for\
+  \ further refinement if necessary."
+- I have difficulty of retrive the potentially relevent text from N-CSR/S filings.
+  The issue is that the N-CSR and N-CSRS files do not following particular format.
+  The sections I am intersted in are letters/statement to shareholders; outlook; interview
+  with your fund manager and such.
+- 'I understand your challenge, Cinder. The lack of a standardized format in SEC N-CSR
+  and N-CSRS filings can indeed make it difficult to extract relevant information.
+  However, Artificial Intelligence (AI) tools, particularly those utilizing Natural
+  Language Processing (NLP) techniques, can be of great help in this situation.
+
+
+  NLP can be used to extract and analyze text data from these documents, potentially
+  saving significant time and effort in the research process. These tools can be trained
+  to identify and extract sections of interest such as letters or statements to shareholders,
+  market outlooks, and interviews with fund managers.
+
+
+  Remember, while these filings can provide some insight into a fund manager''s market
+  outlook, they should not be the sole source of information due to their regulatory
+  nature and the variability in the level of detail provided. Other sources such as
+  fund manager letters, interviews, and public statements should also be considered
+  to enhance your research process.
+
+
+  Would you like more information on how to use NLP tools for this purpose, or perhaps
+  you need assistance with something else?'

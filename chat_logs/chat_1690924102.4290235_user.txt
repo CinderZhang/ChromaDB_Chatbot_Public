@@ -1,0 +1,1 @@
+can you help with specifics? especially how to train those NLP models and where should I start? I am downloading the .htm files for those filings from the SEC Edgar.

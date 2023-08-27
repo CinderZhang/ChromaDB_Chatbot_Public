@@ -1,0 +1,135 @@
+- 'Your role is to manage and update a User Profile Document (UPD) for a chatbot.
+  This UPD serves as the chatbot''s foundational directory and is presented in a straightforward
+  text format. An instance of the current UPD is available below.
+
+
+  Your primary responsibility is to parse updates supplied by the USER. You are expected
+  to meticulously analyze these updates to discover any modifications to user information.
+  This could include critical details like name, demographics, and other foundational
+  attributes. It could also extend to elements such as user preferences, significant
+  life events, and deeply held beliefs. Please refrain from incorporating nonessential
+  data or unrelated topics.
+
+
+  The result of your efforts should exclusively be an updated UPD. If the USER''s
+  update doesn''t contribute any new or significant information, your output should
+  mirror the current UPD as indicated below. However, if you discover any relevant
+  new information, your output should feature an updated UPD that assimilates these
+  modifications.
+
+
+  You must prioritize brevity and clarity in your output. Combine and condense information
+  when appropriate to ensure succinctness and improve comprehension. Totally rewrite
+  or restructure UPD as necessary, adhereing to list format. Your response should
+  not include explanatory text or context; deliver only the user profile. The new
+  UPD should always be written as a hyphenated labeled list. You may use whatever
+  labels are most appropriate. For example:
+
+
+  Example user profile:
+
+  - User name: John Smith
+
+  - Preference: Use precise medical terminology
+
+  - Background: John Smith is a doctor at Johns Hopkins
+
+
+  The UPD should not exceed approximately 1000 words. When revising the UPD, give
+  precedence to the most significant and relevant information. Extraneous or less
+  impactful information should be omitted in favor of the most critical details. If
+  user provides conflicting information, ask for clarification. The background system
+  will autonomically make corrections.
+
+
+
+
+  Current user profile: (Current word count: 248)
+
+  - Name: Cinder
+
+  - Profession: ChatGPT auth
+
+  - Interests: Reading SEC N-CSR and N-CSRS filings, Market predictions, Extracting
+  relevant text from unstructured filings, Training NLP models
+
+  - Challenges: Difficulty in retrieving relevant sections from N-CSR/S filings due
+  to lack of uniform format, Need detailed guidance on training NLP models, including
+  specific packages and pseudo code, Requires examples of annotated N-CSR filings
+  for dataset preparation
+
+  - Target Sections: Letters/Statements to shareholders, Outlook, Interviews with
+  fund managers
+
+  - Beliefs: Buddaism
+
+  - Plans: Analyze fund managers'' market outlooks, Learn to train NLP models with
+  specific steps and tools, Prepare dataset using examples of annotated N-CSR filings,
+  Consider extracting only forward-looking opinions of fund managers as an alternative
+  approach
+
+  - Preference: Email, Detailed instructions, Examples for guidance, Detailed steps,
+  Packages and pseudo code
+
+  - Resources: Downloading .htm files for filings from SEC Edgar
+
+  - Questions: Request for an example of annotated N-CSR filing for dataset preparation,
+  Seeks opinion on the cost-effectiveness of extracting only forward-looking opinions
+  of fund managers, Inquires about the utility of few-shot models and the ChatGPT
+  API for the task, Requests guidance on dataset preparation for few-shot models,
+  including packages and pseudo code, Asks if providing examples of forward-looking
+  statements from filings would be helpful and requests guidance on steps, packages,
+  and pseudo code for this approach.
+
+  - Dataset Structure: Manually labeled dataset with 2 variables, "Text", and "ForwardLooking",
+  where "Text" is the statements and "ForwardLooking" is 1 if the statement is forward
+  looking, and 0 otherwise.
+
+  - Fine-tuning Request: Requests fine-tuning pseudo code with RoBERTa, GPT-3.5, Meta-Llama,
+  and ChatGPT-3.5.'
+- 'how about pseudo code using chatgpt-3.5?
+
+  Can you also try a pseudo code with Meta-Llama?
+
+  that''s fine. Please provide code to save the fine tuned mode for RoBERTa and ChatGPT'
+- '- Name: Cinder
+
+  - Profession: ChatGPT auth
+
+  - Interests: Reading SEC N-CSR and N-CSRS filings, Market predictions, Extracting
+  relevant text from unstructured filings, Training NLP models
+
+  - Challenges: Difficulty in retrieving relevant sections from N-CSR/S filings due
+  to lack of uniform format, Need detailed guidance on training NLP models, including
+  specific packages and pseudo code, Requires examples of annotated N-CSR filings
+  for dataset preparation
+
+  - Target Sections: Letters/Statements to shareholders, Outlook, Interviews with
+  fund managers
+
+  - Beliefs: Buddaism
+
+  - Plans: Analyze fund managers'' market outlooks, Learn to train NLP models with
+  specific steps and tools, Prepare dataset using examples of annotated N-CSR filings,
+  Consider extracting only forward-looking opinions of fund managers as an alternative
+  approach
+
+  - Preference: Email, Detailed instructions, Examples for guidance, Detailed steps,
+  Packages and pseudo code
+
+  - Resources: Downloading .htm files for filings from SEC Edgar
+
+  - Questions: Request for an example of annotated N-CSR filing for dataset preparation,
+  Seeks opinion on the cost-effectiveness of extracting only forward-looking opinions
+  of fund managers, Inquires about the utility of few-shot models and the ChatGPT
+  API for the task, Requests guidance on dataset preparation for few-shot models,
+  including packages and pseudo code, Asks if providing examples of forward-looking
+  statements from filings would be helpful and requests guidance on steps, packages,
+  and pseudo code for this approach.
+
+  - Dataset Structure: Manually labeled dataset with 2 variables, "Text", and "ForwardLooking",
+  where "Text" is the statements and "ForwardLooking" is 1 if the statement is forward
+  looking, and 0 otherwise.
+
+  - Fine-tuning Request: Requests fine-tuning pseudo code with RoBERTa, GPT-3.5, Meta-Llama,
+  and ChatGPT-3.5, including code to save the fine-tuned model.'

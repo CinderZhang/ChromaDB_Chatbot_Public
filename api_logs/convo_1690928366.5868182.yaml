@@ -1,0 +1,372 @@
+- "You are a chatbot whose mission is to assist the following user. Your ultimate\
+  \ objectives are to minimize suffering, enhance prosperity, and promote understanding.\n\
+  \nThe provided information about the user and the Knowledge Base (KB) articles should\
+  \ be integrated into your interactions. This is private information not visible\
+  \ to the user. The user profile, compiled from past conversations, encapsulates\
+  \ critical details about the user which can aid in shaping your responses effectively.\
+  \ Whenever relevant user data is detected in a conversation, the user profile is\
+  \ updated automatically.\n\nThe KB article is a topic compiled similarly from past\
+  \ dialogues, serving as your \"long-term memory\". While numerous KB articles exist\
+  \ in your backend system, the one provided is deemed most relevant to the current\
+  \ conversation topic. Note that the recall system operates autonomously, and it\
+  \ may not always retrieve the most suitable KB. If the user is asking about a topic\
+  \ that doesn't seem to align with the provided KB, inform them of the memory pulled\
+  \ and request them to specify their query or share more details. This can assist\
+  \ the autonomous system in retrieving the correct memory in the subsequent interaction.\n\
+  \n\nUser Profile:\n- Name: Cinder\n- Profession: ChatGPT auth\n- Interests: Reading\
+  \ SEC N-CSR and N-CSRS filings, Market predictions, Extracting relevant text from\
+  \ unstructured filings, Training NLP models\n- Challenges: Difficulty in retrieving\
+  \ relevant sections from N-CSR/S filings due to lack of uniform format, Need detailed\
+  \ guidance on training NLP models, including specific packages and pseudo code,\
+  \ Requires examples of annotated N-CSR filings for dataset preparation\n- Target\
+  \ Sections: Letters/Statements to shareholders, Outlook, Interviews with fund managers\n\
+  - Beliefs: Buddaism\n- Plans: Analyze fund managers' market outlooks, Learn to train\
+  \ NLP models with specific steps and tools, Prepare dataset using examples of annotated\
+  \ N-CSR filings, Consider extracting only forward-looking opinions of fund managers\
+  \ as an alternative approach\n- Preference: Email, Detailed instructions, Examples\
+  \ for guidance, Detailed steps, Packages and pseudo code\n- Resources: Downloading\
+  \ .htm files for filings from SEC Edgar\n- Questions: Request for an example of\
+  \ annotated N-CSR filing for dataset preparation, Seeks opinion on the cost-effectiveness\
+  \ of extracting only forward-looking opinions of fund managers, Inquires about the\
+  \ utility of few-shot models and the ChatGPT API for the task, Requests guidance\
+  \ on dataset preparation for few-shot models, including packages and pseudo code,\
+  \ Asks if providing examples of forward-looking statements from filings would be\
+  \ helpful and requests guidance on steps, packages, and pseudo code for this approach.\n\
+  - Dataset Structure: Manually labeled dataset with 2 variables, \"Text\", and \"\
+  ForwardLooking\", where \"Text\" is the statements and \"ForwardLooking\" is 1 if\
+  \ the statement is forward looking, and 0 otherwise.\n- Fine-tuning Request: Requests\
+  \ fine-tuning pseudo code with RoBERTa, GPT-3.5 or Meta-Llama.\n\n\nKB Article:\n\
+  Knowledge Base Article:\n\nSEC N-CSR and N-CSRS filings are regulatory documents\
+  \ that primarily focus on a fund's performance, holdings, and financial statements.\
+  \ These filings do not follow a standardized format, which can make it challenging\
+  \ to extract relevant information such as letters or statements to shareholders,\
+  \ market outlooks, and interviews with fund managers.\n\nArtificial Intelligence\
+  \ (AI) tools, particularly those utilizing Natural Language Processing (NLP) techniques,\
+  \ can be leveraged to assist with data extraction and analysis from these documents.\
+  \ NLP can be used to identify and extract sections of interest, potentially saving\
+  \ significant time and effort in the research process.\n\nTo train an NLP model\
+  \ for this purpose, follow these steps:\n\n1. **Data Preparation**: Gather a dataset\
+  \ of SEC filings. Convert these into a text format that your NLP model can process.\
+  \ For instance, if you have .htm files, you can use BeautifulSoup in Python to convert\
+  \ these files into plain text.\n\n2. **Annotation**: Identify and label the sections\
+  \ of interest in your dataset. This could be done manually or semi-automatically\
+  \ with the help of some basic NLP techniques. Tools like Doccano can assist with\
+  \ this process. The output should be a list of tuples, each containing the start\
+  \ and end indices of a section. The quality of your annotations will greatly affect\
+  \ the performance of your model, so it's important to be as accurate as possible.\n\
+  \n3. **Model Selection**: Choose an NLP model that's suitable for your task. For\
+  \ text extraction tasks, models based on the Transformer architecture, such as BERT\
+  \ or GPT, are often used. Libraries like Hugging Face's Transformers provide pre-trained\
+  \ models that can be fine-tuned for your task.\n\n4. **Training**: Fine-tune your\
+  \ chosen model on your annotated dataset. This involves running the model on your\
+  \ data and adjusting the model's parameters to minimize the difference between the\
+  \ model's predictions and the actual labels.\n\n5. **Evaluation**: After training,\
+  \ evaluate your model's performance on a separate test set to ensure it can generalize\
+  \ to unseen data.\n\n6. **Deployment**: Once you're satisfied with your model's\
+  \ performance, you can use it to extract the relevant sections from new SEC filings.\n\
+  \nAn alternative approach could be to focus on extracting sentences where fund managers\
+  \ express their forward-looking opinions. This could be a less costly approach,\
+  \ but it's important to consider the context, ambiguity, and variability of these\
+  \ statements. Forward-looking statements are often surrounded by context that helps\
+  \ explain or support them, and they might not always be clearly marked or presented\
+  \ directly. The language used in these statements can also vary greatly, both between\
+  \ different fund managers and over time.\n\nFew-shot learning could be a good approach\
+  \ for this task, especially if you have a limited amount of annotated data. In few-shot\
+  \ learning, the model is trained to learn a task from a small number of examples\
+  \ (the \"shots\"). This is a common approach in NLP and can be very effective for\
+  \ tasks like text extraction. Libraries like Hugging Face's Transformers can be\
+  \ used for few-shot learning.\n\nFor few-shot learning, you would prepare your dataset\
+  \ in the same way as before, by annotating a small number of examples with the start\
+  \ and end indices of the forward-looking statements. The difference is that you\
+  \ would only need a few examples to train your model. \n\nYou can also fine-tune\
+  \ a model on a labeled dataset using models like RoBERTa, GPT-3.5, or Meta-Llama.\
+  \ The dataset should contain two variables, \"Text\" and \"ForwardLooking\", where\
+  \ \"Text\" is the statements and \"ForwardLooking\" is 1 if the statement is forward-looking,\
+  \ and 0 otherwise. \n\nAs for the ChatGPT API, it could be used for this task, but\
+  \ it's important to note that it has a maximum token limit (currently 4096 tokens\
+  \ for gpt-3.5-turbo). If your filings are longer than this, you would need to split\
+  \ them into smaller chunks before processing them with the API.\n\nWhile these filings\
+  \ can provide valuable insights into a fund manager's outlook and market predictions,\
+  \ it's important to note that sharing market outlook is not a requirement in these\
+  \ documents, and the level of detail can vary significantly. For a more comprehensive\
+  \ understanding of a fund manager's market outlook, consider supplementing your\
+  \ research with other sources such as fund manager letters, interviews, and public\
+  \ statements. These sources often contain more explicit views on the market's future\
+  \ direction.\n\nIn conclusion, while SEC N-CSR and N-CSRS filings can provide some\
+  \ insight into a fund manager's market outlook, they should not be the sole source\
+  \ of information due to their regulatory nature and the variability in the level\
+  \ of detail provided. Other sources and AI tools should be considered to enhance\
+  \ the research process.\n\n\nRemember that the clarity of your responses and the\
+  \ relevance of your information recall are crucial in delivering an optimal user\
+  \ experience. Please ask any clarifying questions or provide any input for further\
+  \ refinement if necessary."
+- I have difficulty of retrive the potentially relevent text from N-CSR/S filings.
+  The issue is that the N-CSR and N-CSRS files do not following particular format.
+  The sections I am intersted in are letters/statement to shareholders; outlook; interview
+  with your fund manager and such.
+- 'I understand your challenge, Cinder. The lack of a standardized format in SEC N-CSR
+  and N-CSRS filings can indeed make it difficult to extract relevant information.
+  However, Artificial Intelligence (AI) tools, particularly those utilizing Natural
+  Language Processing (NLP) techniques, can be of great help in this situation.
+
+
+  NLP can be used to extract and analyze text data from these documents, potentially
+  saving significant time and effort in the research process. These tools can be trained
+  to identify and extract sections of interest such as letters or statements to shareholders,
+  market outlooks, and interviews with fund managers.
+
+
+  Remember, while these filings can provide some insight into a fund manager''s market
+  outlook, they should not be the sole source of information due to their regulatory
+  nature and the variability in the level of detail provided. Other sources such as
+  fund manager letters, interviews, and public statements should also be considered
+  to enhance your research process.
+
+
+  Would you like more information on how to use NLP tools for this purpose, or perhaps
+  you need assistance with something else?'
+- can you help with specifics? especially how to train those NLP models and where
+  should I start? I am downloading the .htm files for those filings from the SEC Edgar.
+- 'Absolutely, Cinder. Training an NLP model to extract specific sections from unstructured
+  text like SEC filings involves several steps. Here''s a simplified overview:
+
+
+  1. **Data Preparation**: Start by gathering a dataset of SEC filings. You''ve already
+  started this by downloading the .htm files from the SEC Edgar. You''ll need to convert
+  these into a text format that your NLP model can process.
+
+
+  2. **Annotation**: Identify and label the sections of interest in your dataset.
+  This could be done manually or semi-automatically with the help of some basic NLP
+  techniques. This step is crucial as it forms the basis for training your model.
+
+
+  3. **Model Selection**: Choose an NLP model that''s suitable for your task. For
+  text extraction tasks like yours, models based on the Transformer architecture,
+  such as BERT or GPT, are often used. There are many pre-trained models available
+  that you can fine-tune on your task.
+
+
+  4. **Training**: Fine-tune your chosen model on your annotated dataset. This involves
+  running the model on your data and adjusting the model''s parameters to minimize
+  the difference between the model''s predictions and the actual labels.
+
+
+  5. **Evaluation**: After training, evaluate your model''s performance on a separate
+  test set to ensure it can generalize to unseen data.
+
+
+  6. **Deployment**: Once you''re satisfied with your model''s performance, you can
+  use it to extract the relevant sections from new SEC filings.
+
+
+  This is a high-level overview and each step involves more detailed work. There are
+  many resources available online to help you get started with NLP and model training.
+  Libraries like Hugging Face''s Transformers and spaCy provide pre-trained models
+  and tools that can be very helpful.
+
+
+  Remember, this process can be complex and time-consuming, especially if you''re
+  new to NLP. Don''t hesitate to seek help or use available tools and resources. Would
+  you like more detailed information on any of these steps?'
+- Please get into detail steps. Packages and sudo code would help.
+- "Sure, Cinder. Here's a more detailed guide using Python and the Hugging Face's\
+  \ Transformers library, which provides pre-trained models like BERT and GPT. This\
+  \ is a simplified example and the actual code may vary depending on your specific\
+  \ needs.\n\n1. **Data Preparation**: Convert your .htm files into plain text. You\
+  \ can use BeautifulSoup for this:\n\n```python\nfrom bs4 import BeautifulSoup\n\n\
+  def html_to_text(file_path):\n    with open(file_path, 'r') as file:\n        data\
+  \ = file.read()\n    soup = BeautifulSoup(data, 'html.parser')\n    return soup.get_text()\n\
+  ```\n\n2. **Annotation**: Manually annotate a subset of your data. This involves\
+  \ marking the start and end of the sections of interest in your text. There are\
+  \ tools like Doccano that can help with this. The output should be a list of tuples,\
+  \ each containing the start and end indices of a section.\n\n3. **Model Selection**:\
+  \ Import a pre-trained model and a tokenizer from the Transformers library:\n\n\
+  ```python\nfrom transformers import BertTokenizerFast, BertForTokenClassification\n\
+  \ntokenizer = BertTokenizerFast.from_pretrained('bert-base-uncased')\nmodel = BertForTokenClassification.from_pretrained('bert-base-uncased')\n\
+  ```\n\n4. **Training**: Prepare your data for training. Tokenize your text and labels,\
+  \ and split your data into training and validation sets. Then, fine-tune your model:\n\
+  \n```python\n# Tokenize your text and labels\ninputs = tokenizer(texts, is_split_into_words=True,\
+  \ padding=True, truncation=True)\nlabels = [...]  # Your annotated labels\n\n# Split\
+  \ your data into training and validation sets\ntrain_inputs, val_inputs, train_labels,\
+  \ val_labels = train_test_split(inputs, labels)\n\n# Fine-tune your model\nmodel.train()\n\
+  for epoch in range(epochs):\n    for batch in train_dataloader:\n        outputs\
+  \ = model(**batch)\n        loss = outputs.loss\n        loss.backward()\n     \
+  \   optimizer.step()\n```\n\n5. **Evaluation**: Evaluate your model's performance\
+  \ on your validation set:\n\n```python\nmodel.eval()\nfor batch in val_dataloader:\n\
+  \    with torch.no_grad():\n        outputs = model(**batch)\n    # Calculate your\
+  \ performance metric\n```\n\n6. **Deployment**: Use your trained model to extract\
+  \ sections from new filings:\n\n```python\ndef extract_sections(text):\n    inputs\
+  \ = tokenizer(text, return_tensors='pt')\n    outputs = model(**inputs)\n    # Post-process\
+  \ the outputs to get the start and end indices of the sections\n```\n\nThis is a\
+  \ very simplified example and there are many details not covered here, such as how\
+  \ to handle the labels, how to calculate the performance metric, and how to post-process\
+  \ the model's outputs. I recommend checking out the Hugging Face's Transformers\
+  \ documentation and tutorials for more information."
+- Will you be able to show me an example of annoted N-CSR filing as to, How should
+  I prepare the dataset?
+- "Certainly, Cinder. Annotating your dataset involves marking the start and end of\
+  \ the sections of interest in your text. This process can be manual or semi-automated\
+  \ with the help of some basic NLP techniques. \n\nFor instance, let's say you have\
+  \ a text from an N-CSR filing like this:\n\n```\n1.0 LETTER TO SHAREHOLDERS\n\n\
+  Dear Shareholders,\n\nWe are pleased to present the annual report for XYZ Fund.\
+  \ The fund's net asset value increased by 5% this year...\n\n2.0 MARKET OUTLOOK\n\
+  \nLooking ahead, we expect the market to...\n\n3.0 INTERVIEW WITH FUND MANAGER\n\
+  \nIn a recent interview, our fund manager stated that...\n```\n\nYou would annotate\
+  \ this text by marking the start and end indices of each section. The output might\
+  \ look something like this:\n\n```python\nannotations = [\n    ('LETTER TO SHAREHOLDERS',\
+  \ 6, 103),\n    ('MARKET OUTLOOK', 107, 150),\n    ('INTERVIEW WITH FUND MANAGER',\
+  \ 154, 210)\n]\n```\n\nEach tuple in the list represents a section, with the start\
+  \ and end indices referring to the position of the section in the text. \n\nThis\
+  \ is a simplified example and the actual process may be more complex, especially\
+  \ for longer and more unstructured texts. Tools like Doccano can assist with this\
+  \ process, allowing you to annotate your text in a more visual and intuitive way.\n\
+  \nRemember, the quality of your annotations will greatly affect the performance\
+  \ of your model, so it's important to be as accurate as possible."
+- an alternative approach would be, I only extract the sentences which fund manager(s)
+  express their forward looking opinions. I assume the approach should be less costly.
+  What do you think?
+- 'Yes, Cinder, focusing on extracting sentences where fund managers express their
+  forward-looking opinions could indeed be a less costly approach. This would involve
+  training a model to identify and extract sentences based on certain keywords or
+  phrases that indicate a forward-looking statement.
+
+
+  However, there are a few things to consider:
+
+
+  1. **Context**: Forward-looking statements are often surrounded by context that
+  helps explain or support them. By only extracting the sentences with the statements,
+  you might miss out on this context.
+
+
+  2. **Ambiguity**: Not all forward-looking statements will be clearly marked as such.
+  They might be embedded in a larger discussion or presented indirectly. This could
+  make it more difficult for your model to accurately identify them.
+
+
+  3. **Variability**: The language used in these statements can vary greatly, both
+  between different fund managers and over time. This could require a larger and more
+  diverse training dataset to ensure your model can generalize well.
+
+
+  Despite these challenges, this approach could still be a good starting point, especially
+  if you''re new to NLP or if you have limited resources. You can always start with
+  this simpler task and then gradually add more complexity as you gain more experience
+  and resources.'
+- Would few shot model help in this case? If so, how the dataset should be prepared
+  and please also provide packages and sudo code. Each of The filings can be quite
+  long. Will ChatGPT API appropriate for such task?
+- "Yes, few-shot learning could be a good approach for this task, especially if you\
+  \ have a limited amount of annotated data. In few-shot learning, the model is trained\
+  \ to learn a task from a small number of examples (the \"shots\"). This is a common\
+  \ approach in NLP and can be very effective for tasks like text extraction.\n\n\
+  For this task, you would prepare your dataset in the same way as before, by annotating\
+  \ a small number of examples with the start and end indices of the forward-looking\
+  \ statements. The difference is that you would only need a few examples to train\
+  \ your model.\n\nHere's a simplified example of how you might use the Hugging Face's\
+  \ Transformers library for few-shot learning:\n\n```python\nfrom transformers import\
+  \ GPTNeoForCausalLM, GPT2Tokenizer\n\ntokenizer = GPT2Tokenizer.from_pretrained('gpt2')\n\
+  model = GPTNeoForCausalLM.from_pretrained('EleutherAI/gpt-neo-2.7B')\n\n# Prepare\
+  \ your prompt and examples\nprompt = \"In the following text, identify the forward-looking\
+  \ statements:\"\nexamples = [\n    (\"The market has been volatile, but we expect\
+  \ it to stabilize in the coming months.\", \"we expect it to stabilize in the coming\
+  \ months\"),\n    (\"Our fund has performed well this year and we anticipate continued\
+  \ growth.\", \"we anticipate continued growth\"),\n    # Add more examples\n]\n\n\
+  # Concatenate your prompt and examples into a single string\ninput_text = prompt\
+  \ + \"\\n\\n\" + \"\\n\\n\".join(f\"Text: {text}\\nStatement: {statement}\" for\
+  \ text, statement in examples)\n\n# Tokenize your input text\ninputs = tokenizer(input_text,\
+  \ return_tensors='pt')\n\n# Generate a response from the model\noutputs = model.generate(**inputs)\n\
+  \n# Decode the response\nresponse = tokenizer.decode(outputs[0])\n\n# The response\
+  \ should contain the forward-looking statements from your new text\n```\n\nThis\
+  \ is a very simplified example and the actual code may vary depending on your specific\
+  \ needs. I recommend checking out the Hugging Face's Transformers documentation\
+  \ and tutorials for more information.\n\nAs for the ChatGPT API, it could be used\
+  \ for this task, but it's important to note that it has a maximum token limit (currently\
+  \ 4096 tokens for gpt-3.5-turbo). If your filings are longer than this, you would\
+  \ need to split them into smaller chunks before processing them with the API."
+- Will it help If I provide examples of such statements from the filings? If so, please
+  suggest steps, packages, psudo code and other things helpful.
+- "Yes, providing examples of forward-looking statements from the filings would be\
+  \ very helpful. These examples can be used to train your model in a few-shot learning\
+  \ setup. Here's a step-by-step guide:\n\n1. **Data Preparation**: Gather a small\
+  \ number of examples of forward-looking statements from your filings. Each example\
+  \ should include the full text of the statement and the start and end indices of\
+  \ the forward-looking part.\n\n2. **Model Selection**: Choose a model that's suitable\
+  \ for few-shot learning. GPT-3 or GPT-Neo are good choices for this task. You can\
+  \ use the Hugging Face's Transformers library to access these models.\n\n3. **Training**:\
+  \ Prepare your prompt and examples, and use them to generate a response from the\
+  \ model. The model should be able to identify the forward-looking statements in\
+  \ your examples.\n\nHere's a simplified example using Python and the Hugging Face's\
+  \ Transformers library:\n\n```python\nfrom transformers import GPTNeoForCausalLM,\
+  \ GPT2Tokenizer\n\ntokenizer = GPT2Tokenizer.from_pretrained('gpt2')\nmodel = GPTNeoForCausalLM.from_pretrained('EleutherAI/gpt-neo-2.7B')\n\
+  \n# Prepare your prompt and examples\nprompt = \"In the following text, identify\
+  \ the forward-looking statements:\"\nexamples = [\n    (\"The market has been volatile,\
+  \ but we expect it to stabilize in the coming months.\", \"we expect it to stabilize\
+  \ in the coming months\"),\n    (\"Our fund has performed well this year and we\
+  \ anticipate continued growth.\", \"we anticipate continued growth\"),\n    # Add\
+  \ more examples from your filings\n]\n\n# Concatenate your prompt and examples into\
+  \ a single string\ninput_text = prompt + \"\\n\\n\" + \"\\n\\n\".join(f\"Text: {text}\\\
+  nStatement: {statement}\" for text, statement in examples)\n\n# Tokenize your input\
+  \ text\ninputs = tokenizer(input_text, return_tensors='pt')\n\n# Generate a response\
+  \ from the model\noutputs = model.generate(**inputs)\n\n# Decode the response\n\
+  response = tokenizer.decode(outputs[0])\n\n# The response should contain the forward-looking\
+  \ statements from your new text\n```\n\nThis is a very simplified example and the\
+  \ actual code may vary depending on your specific needs. I recommend checking out\
+  \ the Hugging Face's Transformers documentation and tutorials for more information.\n\
+  \nRemember, few-shot learning can be very effective, but it's not guaranteed to\
+  \ work perfectly, especially on complex tasks like this. It's important to evaluate\
+  \ your model's performance and adjust your approach as needed."
+- If I feed a mannually labeled dataset, with 2 variables, "Text", and "ForwardLooking",
+  where "Text" is the statements and "ForwardLooking" is 1 if the statement is forward  looking,
+  and 0 otherwise.. Please provide fine-tuning pseudo code with RoBERTa, GPT-3.5 or
+  Meta-Llama.
+- "Sure, Cinder. Here's a simplified example of how you might fine-tune a model on\
+  \ your labeled dataset using the Hugging Face's Transformers library. This example\
+  \ uses the RoBERTa model, but you can replace it with GPT-3.5 or Meta-Llama as needed.\n\
+  \n```python\nfrom transformers import RobertaTokenizerFast, RobertaForSequenceClassification,\
+  \ Trainer, TrainingArguments\nfrom sklearn.model_selection import train_test_split\n\
+  import torch\n\n# Load the tokenizer and model\ntokenizer = RobertaTokenizerFast.from_pretrained('roberta-base')\n\
+  model = RobertaForSequenceClassification.from_pretrained('roberta-base')\n\n# Prepare\
+  \ your dataset\ntexts = [...]  # Your statements\nlabels = [...]  # Your labels\
+  \ (1 for forward-looking, 0 otherwise)\n\n# Tokenize your texts\ninputs = tokenizer(texts,\
+  \ truncation=True, padding=True, max_length=512)\n\n# Convert your inputs to a PyTorch\
+  \ Dataset\nclass MyDataset(torch.utils.data.Dataset):\n    def __init__(self, encodings,\
+  \ labels):\n        self.encodings = encodings\n        self.labels = labels\n\n\
+  \    def __getitem__(self, idx):\n        item = {key: torch.tensor(val[idx]) for\
+  \ key, val in self.encodings.items()}\n        item['labels'] = torch.tensor(self.labels[idx])\n\
+  \        return item\n\n    def __len__(self):\n        return len(self.labels)\n\
+  \ndataset = MyDataset(inputs, labels)\n\n# Split your dataset into a training set\
+  \ and a validation set\ntrain_dataset, val_dataset = train_test_split(dataset, test_size=0.2)\n\
+  \n# Define your training arguments\ntraining_args = TrainingArguments(\n    output_dir='./results',\n\
+  \    num_train_epochs=3,\n    per_device_train_batch_size=16,\n    per_device_eval_batch_size=64,\n\
+  \    warmup_steps=500,\n    weight_decay=0.01,\n    logging_dir='./logs',\n)\n\n\
+  # Create a Trainer\ntrainer = Trainer(\n    model=model,\n    args=training_args,\n\
+  \    train_dataset=train_dataset,\n    eval_dataset=val_dataset\n)\n\n# Train your\
+  \ model\ntrainer.train()\n```\n\nThis is a very simplified example and the actual\
+  \ code may vary depending on your specific needs. I recommend checking out the Hugging\
+  \ Face's Transformers documentation and tutorials for more information.\n\nRemember,\
+  \ fine-tuning a model on a task like this can be complex and time-consuming. It's\
+  \ important to monitor your model's performance and adjust your approach as needed."
+- how about pseudo code using chatgpt-3.5?
+- "Fine-tuning the GPT-3.5 model specifically is not currently supported in the Hugging\
+  \ Face's Transformers library. However, you can use the GPT-3.5 model via OpenAI's\
+  \ API for text generation tasks. \n\nFor classification tasks like yours, you would\
+  \ typically use the model to generate text based on a prompt and then post-process\
+  \ the generated text to get your classification. Here's a simplified example:\n\n\
+  ```python\nimport openai\n\nopenai.api_key = 'your-api-key'\n\n# Prepare your prompt\n\
+  prompt = \"This is a forward-looking statement:\"\n\n# Add your examples\nexamples\
+  \ = [\n    (\"The market has been volatile, but we expect it to stabilize in the\
+  \ coming months.\", \"True\"),\n    (\"Our fund has performed well this year.\"\
+  , \"False\"),\n    # Add more examples\n]\n\n# Concatenate your prompt and examples\
+  \ into a single string\ninput_text = prompt + \"\\n\\n\" + \"\\n\\n\".join(f\"Text:\
+  \ {text}\\nForward-looking: {forward_looking}\" for text, forward_looking in examples)\n\
+  \n# Generate a response from the model\nresponse = openai.Completion.create(engine=\"\
+  text-davinci-003\", prompt=input_text, max_tokens=100)\n\n# The response should\
+  \ contain whether your new text is a forward-looking statement or not\n```\n\nThis\
+  \ is a very simplified example and the actual code may vary depending on your specific\
+  \ needs. I recommend checking out the OpenAI API documentation for more information.\n\
+  \nRemember, using the GPT-3.5 model in this way is not the same as fine-tuning the\
+  \ model on your task. The model is generating text based on the patterns it learned\
+  \ during its pre-training, and it's not being updated to better fit your specific\
+  \ task."

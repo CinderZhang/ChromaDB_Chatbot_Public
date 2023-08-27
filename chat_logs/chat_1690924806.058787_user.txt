@@ -1,0 +1,1 @@
+an alternative approach would be, I only extract the sentences which fund manager(s) express their forward looking opinions. I assume the approach should be less costly. What do you think?

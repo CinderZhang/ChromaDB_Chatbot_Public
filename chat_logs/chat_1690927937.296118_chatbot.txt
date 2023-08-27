@@ -1,0 +1,63 @@
+Sure, Cinder. Here's a simplified example of how you might fine-tune a model on your labeled dataset using the Hugging Face's Transformers library. This example uses the RoBERTa model, but you can replace it with GPT-3.5 or Meta-Llama as needed.
+
+```python
+from transformers import RobertaTokenizerFast, RobertaForSequenceClassification, Trainer, TrainingArguments
+from sklearn.model_selection import train_test_split
+import torch
+
+# Load the tokenizer and model
+tokenizer = RobertaTokenizerFast.from_pretrained('roberta-base')
+model = RobertaForSequenceClassification.from_pretrained('roberta-base')
+
+# Prepare your dataset
+texts = [...]  # Your statements
+labels = [...]  # Your labels (1 for forward-looking, 0 otherwise)
+
+# Tokenize your texts
+inputs = tokenizer(texts, truncation=True, padding=True, max_length=512)
+
+# Convert your inputs to a PyTorch Dataset
+class MyDataset(torch.utils.data.Dataset):
+    def __init__(self, encodings, labels):
+        self.encodings = encodings
+        self.labels = labels
+
+    def __getitem__(self, idx):
+        item = {key: torch.tensor(val[idx]) for key, val in self.encodings.items()}
+        item['labels'] = torch.tensor(self.labels[idx])
+        return item
+
+    def __len__(self):
+        return len(self.labels)
+
+dataset = MyDataset(inputs, labels)
+
+# Split your dataset into a training set and a validation set
+train_dataset, val_dataset = train_test_split(dataset, test_size=0.2)
+
+# Define your training arguments
+training_args = TrainingArguments(
+    output_dir='./results',
+    num_train_epochs=3,
+    per_device_train_batch_size=16,
+    per_device_eval_batch_size=64,
+    warmup_steps=500,
+    weight_decay=0.01,
+    logging_dir='./logs',
+)
+
+# Create a Trainer
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=train_dataset,
+    eval_dataset=val_dataset
+)
+
+# Train your model
+trainer.train()
+```
+
+This is a very simplified example and the actual code may vary depending on your specific needs. I recommend checking out the Hugging Face's Transformers documentation and tutorials for more information.
+
+Remember, fine-tuning a model on a task like this can be complex and time-consuming. It's important to monitor your model's performance and adjust your approach as needed.

@@ -1,0 +1,1 @@
+I am working on to read as many as SEC N-CSR and N-CSRS filings. The goal is to find out if the fund managers share their outlook or prediction of the market going forward.

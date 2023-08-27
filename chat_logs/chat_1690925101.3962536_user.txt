@@ -1,0 +1,1 @@
+Would few shot model help in this case? If so, how the dataset should be prepared and please also provide packages and sudo code. Each of The filings can be quite long. Will ChatGPT API appropriate for such task?

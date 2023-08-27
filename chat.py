@@ -1,3 +1,5 @@
+
+# %% packages
 import chromadb
 from chromadb.config import Settings
 import openai
@@ -5,7 +7,7 @@ import yaml
 from time import time, sleep
 from uuid import uuid4
 
-
+# %% functions
 def save_yaml(filepath, data):
     with open(filepath, 'w', encoding='utf-8') as file:
         yaml.dump(data, file, allow_unicode=True)
@@ -52,15 +54,17 @@ def chatbot(messages, model="gpt-4", temperature=0):
 
 
 
-
 if __name__ == '__main__':
-    # instantiate ChromaDB
+    #  instantiate ChromaDB
     persist_directory = "chromadb"
-    chroma_client = chromadb.Client(Settings(persist_directory=persist_directory,chroma_db_impl="duckdb+parquet",))
+    # after
+    import chromadb
+    chroma_client = chromadb.PersistentClient(path=persist_directory)
+    #chroma_client = chromadb.Client(Settings(persist_directory=persist_directory,chroma_db_impl="duckdb+parquet",))
     collection = chroma_client.get_or_create_collection(name="knowledge_base")
 
 
-    # instantiate chatbot
+    #  instantiate chatbot
     openai.api_key = open_file('key_openai.txt')
     conversation = list()
     conversation.append({'role': 'system', 'content': open_file('system_default.txt')})
@@ -162,4 +166,8 @@ if __name__ == '__main__':
                 new_id = str(uuid4())
                 collection.add(documents=[a2],ids=[new_id])
                 save_file('db_logs/log_%s_split.txt' % time(), 'Split document %s, added %s:\n%s\n\n%s' % (kb_id, new_id, a1, a2))
-        chroma_client.persist()
+        # chroma_client.persist()
+
+
+
+# %%
